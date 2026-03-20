@@ -1,9 +1,7 @@
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-namespace UserManagement.WebApi.Models;
+namespace UserManagement.Domain.DTOs.User;
 
-[Index(nameof(Email), IsUnique = true)]
 public class UserRequest
 {
     public int Id { get; set; }

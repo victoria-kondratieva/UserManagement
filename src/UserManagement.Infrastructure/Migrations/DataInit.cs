@@ -1,7 +1,8 @@
-﻿using UserManagement.EntityFramework.Entities;
-using UserManagement.EntityFramework.Helpers;
+﻿using UserManagement.Domain.Entities;
+using UserManagement.Domain.Constants;
+using UserManagement.Infrastructure.Helpers;
 
-namespace UserManagement.EntityFramework.Migrations;
+namespace UserManagement.Infrastructure.Migrations;
 
 public static class DataInit
 {

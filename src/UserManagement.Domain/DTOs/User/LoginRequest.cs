@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UserManagement.WebApi.Models;
+namespace UserManagement.Domain.DTOs.User;
 
 public class LoginRequest
 {

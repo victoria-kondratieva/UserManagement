@@ -1,4 +1,4 @@
-﻿namespace UserManagement.WebApi;
+﻿namespace UserManagement.Domain.Constants;
 
 public class Constants
 {

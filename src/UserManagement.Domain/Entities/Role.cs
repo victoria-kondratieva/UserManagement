@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace UserManagement.EntityFramework.Entities;
+namespace UserManagement.Domain.Entities;
 
 public class Role
 {

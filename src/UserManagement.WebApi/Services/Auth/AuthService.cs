@@ -2,7 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using UserManagement.WebApi.Models;
+using UserManagement.Domain.DTOs.User;
 
 namespace UserManagement.WebApi.Services.Auth;
 

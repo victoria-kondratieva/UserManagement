@@ -1,4 +1,4 @@
-﻿using UserManagement.WebApi.Models;
+﻿using UserManagement.Domain.DTOs.User;
 
 namespace UserManagement.WebApi.Services.Auth;
 

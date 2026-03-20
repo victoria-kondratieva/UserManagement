@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserManagement.WebApi.Helpers;
-using UserManagement.WebApi.Models;
 using UserManagement.WebApi.Services.Auth;
 using UserManagement.WebApi.Services.User;
+using UserManagement.Domain.DTOs.User;
 
 namespace UserManagement.WebApi.Controllers;
 
@@ -36,14 +36,9 @@ public class AuthController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        var isDataValid = _userService.IsValidUserData(model);
-        if (isDataValid)
-        {
-            var tokenString = _authService.GenerateJwtToken(model);
-            return Ok(new { Token = tokenString, Message = "Success" });
-        }
+        var tokenString = _authService.GenerateJwtToken(model);
 
-        return BadRequest("Invalid authentication data");
+        return Ok(new { Token = tokenString, Message = "Success" });
     }
 
     /// <summary>

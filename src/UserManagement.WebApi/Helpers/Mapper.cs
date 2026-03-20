@@ -1,6 +1,6 @@
 using AutoMapper;
-using UserManagement.EntityFramework.Entities;
-using UserManagement.WebApi.Models;
+using UserManagement.Domain.Entities;
+using UserManagement.Domain.DTOs.User;
 
 namespace UserManagement.WebApi.Helpers;
 

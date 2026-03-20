@@ -1,7 +1,7 @@
 ﻿namespace UserManagement.WebApi;
 
-using EntityFramework.Helpers;
-using EntityFramework.Migrations;
+using Infrastructure.Helpers;
+using Infrastructure.Migrations;
 using WebApi.Services.User;
 using WebApi.Services.Auth;
 
@@ -67,7 +67,7 @@ public class Startup
             };
         });
 
-        services.AddUserManagementEntityFramework();
+        services.AddUserManagementInfrastructure();
 
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IUserService, UserService>();

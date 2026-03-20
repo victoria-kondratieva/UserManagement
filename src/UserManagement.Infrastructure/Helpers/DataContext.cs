@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using UserManagement.EntityFramework.Entities;
+using UserManagement.Domain.Entities;
 
-namespace UserManagement.EntityFramework.Helpers;
+namespace UserManagement.Infrastructure.Helpers;
 
 public class DataContext : DbContext
 {

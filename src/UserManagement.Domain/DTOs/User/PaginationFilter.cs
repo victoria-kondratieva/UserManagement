@@ -1,4 +1,4 @@
-﻿namespace UserManagement.WebApi.Filters;
+﻿namespace UserManagement.Domain.DTOs.User;
 
 public class PaginationFilter
 {
