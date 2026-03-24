@@ -2,14 +2,13 @@
 
 using Infrastructure.Helpers;
 using Infrastructure.Migrations;
-using WebApi.Services.User;
-using WebApi.Services.Auth;
-
-using System.Text;
-using System.Reflection;
-using Microsoft.OpenApi.Models;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
+using System.Reflection;
+using System.Text;
+using WebApi.Services.Auth;
+using WebApi.Services.User;
 
 public class Startup
 {
@@ -26,7 +25,7 @@ public class Startup
     {
         services.AddEndpointsApiExplorer();
         services.AddControllers().ConfigureApiBehaviorOptions(x => { x.SuppressMapClientErrors = true; });
-        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.AddAutoMapper(cfg => {}, typeof(Program));
         services.AddSwaggerGen(s =>
         {
             s.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
@@ -38,19 +37,9 @@ public class Startup
                 BearerFormat = "JWT",
                 In = ParameterLocation.Header
             });
-            s.AddSecurityRequirement(new OpenApiSecurityRequirement
+            s.AddSecurityRequirement(document => new OpenApiSecurityRequirement
             {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    },
-                    Array.Empty<string>()
-                }
+                [new OpenApiSecuritySchemeReference("Bearer", document)] = []
             });
         });
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
